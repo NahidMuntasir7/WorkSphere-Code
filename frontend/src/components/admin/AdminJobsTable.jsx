@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '../ui/table'
-import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
-import { Edit2, Eye, MoreHorizontal, Trash } from 'lucide-react'
-import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
-import { JOB_API_END_POINT } from '@/utils/constant'
-import { toast } from 'sonner'
-
+import React, { useEffect, useState } from 'react';
+import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '../ui/table';
+import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
+import { Edit2, Eye, MoreHorizontal, Trash } from 'lucide-react';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'sonner';
+import axios from 'axios';
+import { JOB_API_END_POINT } from '@/utils/constant';
 
 const AdminJobsTable = () => {
     const { allAdminJobs, searchJobByText } = useSelector(store => store.job);
@@ -41,7 +40,7 @@ const AdminJobsTable = () => {
     };
 
     return (
-        <div>
+        <div className="text-white">
             <Table>
                 <TableCaption>A list of your recent posted jobs</TableCaption>
                 <TableHeader>
@@ -54,36 +53,33 @@ const AdminJobsTable = () => {
                 </TableHeader>
                 <TableBody>
                     {filterJobs?.map((job) => (
-                        <TableRow key={job._id}>
+                        <TableRow key={job._id} className="hover:bg-gray-700">
                             <TableCell>{job?.company?.name}</TableCell>
                             <TableCell>{job?.title}</TableCell>
                             <TableCell>{job?.createdAt.split("T")[0]}</TableCell>
                             <TableCell className="text-right">
                                 <Popover>
-                                    <PopoverTrigger><MoreHorizontal className="cursor-pointer" /></PopoverTrigger>
-                                    <PopoverContent className="w-40"> {/* Increased width */}
-                                        {/* <div
-                                            onClick={() => navigate(`/admin/companies/${job._id}`)}
-                                            className='flex items-center gap-2 cursor-pointer hover:bg-gray-100 p-2'>
-                                            <Edit2 className='w-4' />
-                                            <span>Edit</span>
-                                        </div> */}
+                                    <PopoverTrigger>
+                                        <MoreHorizontal className="cursor-pointer" />
+                                    </PopoverTrigger>
+                                    <PopoverContent className="w-48 bg-gradient-to-br from-gray-800 to-gray-900 border-gray-600 text-white">
                                         <div
                                             onClick={() => navigate(`/admin/jobs/${job._id}/applicants`)}
-                                            className='flex items-center gap-2 cursor-pointer hover:bg-gray-100 p-2 mt-2'>
+                                            className='flex items-center gap-2 cursor-pointer hover:bg-gray-700 p-2 mt-2'>
                                             <Eye className='w-4' />
-                                            <span className='flex items-center gap-1'> {/* Added flex container for alignment */}
+                                            <span className='flex items-center gap-1'>
                                                 Applicants
                                             </span>
                                         </div>
                                         <div
                                             onClick={() => handleDelete(job._id)}
-                                            className='flex items-center gap-2 cursor-pointer hover:bg-red-100 p-2 mt-2'>
-                                            <Trash className='w-4 text-red-500' />
-                                            <span className='text-red-500'>Delete</span>
+                                            className='flex items-center gap-2 cursor-pointer text-red-500 hover:bg-gray-700 hover:text-red-400 p-2 mt-2'>
+                                            <span>🗑</span>
+                                            <span>Delete</span>
                                         </div>
                                     </PopoverContent>
                                 </Popover>
+
                             </TableCell>
                         </TableRow>
                     ))}
@@ -91,6 +87,7 @@ const AdminJobsTable = () => {
             </Table>
         </div>
     )
+
 }
 
 export default AdminJobsTable;

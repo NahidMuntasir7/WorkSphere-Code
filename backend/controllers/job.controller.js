@@ -1,5 +1,5 @@
 import { Job } from "../models/job.model.js";
-import { Application } from "../models/application.model.js"; 
+import { Application } from "../models/application.model.js";
 
 // admin will post the job
 export const postJob = async (req, res) => {

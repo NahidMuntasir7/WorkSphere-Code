@@ -34,7 +34,9 @@ const Job = ({ job }) => {
 
             <div>
                 <h1 className='font-bold text-lg my-2 text-white'>{job?.title}</h1>
-                <p className='text-sm text-gray-300'>{job?.description}</p>
+                <p className='text-sm text-gray-300 line-clamp-3'>
+                    {job?.description}
+                </p>
             </div>
             <div className='flex items-center gap-2 mt-4'>
                 <Badge className='bg-gradient-to-br from-gray-700 to-gray-800 text-white font-bold py-1 px-2 rounded-full'>
@@ -51,8 +53,8 @@ const Job = ({ job }) => {
                 <Button onClick={() => navigate(`/description/${job?._id}`)} variant="outline" className="bg-white text-black border border-gray-300 hover:bg-gray-300 transition-colors duration-200">
                     Details
                 </Button>
-                <Button className="bg-white text-black border border-gray-300 hover:bg-gray-300 transition-colors duration-200">
-                    Save For Later
+                <Button onClick={() => navigate(`/description/${job?._id}`)} variant="outline" className="bg-white text-black border border-gray-300 hover:bg-gray-300 transition-colors duration-200">
+                    Apply Now
                 </Button>
             </div>
         </div>

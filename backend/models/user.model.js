@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    password:{
+    password: {
         type:String,
         required:true,
     },
@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
         enum:['student','recruiter'],
         required:true
     },
-    profile:{
+    profile: {
         bio:{type:String},
         skills:[{type:String}],
         resume:{type:String}, // URL to resume file
@@ -35,4 +35,5 @@ const userSchema = new mongoose.Schema({
         }
     },
 },{timestamps:true});
+
 export const User = mongoose.model('User', userSchema);

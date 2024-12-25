@@ -1,11 +1,11 @@
 import React from 'react'
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '../ui/table'
-import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
-import { MoreHorizontal } from 'lucide-react';
-import { useSelector } from 'react-redux';
-import { toast } from 'sonner';
-import { APPLICATION_API_END_POINT } from '@/utils/constant';
-import axios from 'axios';
+import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
+import { APPLICATION_API_END_POINT } from '@/utils/constant'
+import axios from 'axios'
+import { MoreHorizontal } from 'lucide-react'
+import { useSelector } from 'react-redux'
+import { toast } from 'sonner'
 
 const shortlistingStatus = ["Accepted", "Rejected"];
 
@@ -27,12 +27,12 @@ const ApplicantsTable = () => {
     }
 
     return (
-        <div>
-            <Table>
-                <TableCaption>A list of your recent applied user</TableCaption>
+        <div className="text-white">
+            <Table className="text-white">
+                <TableCaption>A list of your recent applied users</TableCaption>
                 <TableHeader>
                     <TableRow>
-                        <TableHead>FullName</TableHead>
+                        <TableHead>Full Name</TableHead>
                         <TableHead>Email</TableHead>
                         <TableHead>Contact</TableHead>
                         <TableHead>Resume</TableHead>
@@ -43,45 +43,47 @@ const ApplicantsTable = () => {
                 <TableBody>
                     {
                         applicants && applicants?.applications?.map((item) => (
-                            <tr key={item._id}>
+                            <TableRow key={item._id} className="hover:bg-gray-700">
                                 <TableCell>{item?.applicant?.fullname}</TableCell>
                                 <TableCell>{item?.applicant?.email}</TableCell>
                                 <TableCell>{item?.applicant?.phoneNumber}</TableCell>
-                                <TableCell >
+                                <TableCell>
                                     {
-                                        item.applicant?.profile?.resume ? <a className="text-blue-600 cursor-pointer" href={item?.applicant?.profile?.resume} target="_blank" rel="noopener noreferrer">{item?.applicant?.profile?.resumeOriginalName}</a> : <span>NA</span>
+                                        item.applicant?.profile?.resume ? 
+                                            <a className="text-blue-600 cursor-pointer" href={item?.applicant?.profile?.resume} target="_blank" rel="noopener noreferrer">
+                                                {item?.applicant?.profile?.resumeOriginalName}
+                                            </a> 
+                                            : <span>NA</span>
                                     }
                                 </TableCell>
                                 <TableCell>{item?.applicant.createdAt.split("T")[0]}</TableCell>
-                                <TableCell className="float-right cursor-pointer">
+                                <TableCell className="text-right">
                                     <Popover>
                                         <PopoverTrigger>
-                                            <MoreHorizontal />
+                                            <MoreHorizontal className="cursor-pointer" />
                                         </PopoverTrigger>
-                                        <PopoverContent className="w-32">
+                                        <PopoverContent className="w-48 bg-gradient-to-br from-gray-800 to-gray-900 border-gray-600 text-white">
                                             {
-                                                shortlistingStatus.map((status, index) => {
-                                                    return (
-                                                        <div onClick={() => statusHandler(status, item?._id)} key={index} className='flex w-fit items-center my-2 cursor-pointer'>
-                                                            <span>{status}</span>
-                                                        </div>
-                                                    )
-                                                })
+                                                shortlistingStatus.map((status, index) => (
+                                                    <div 
+                                                        onClick={() => statusHandler(status, item?._id)} 
+                                                        key={index} 
+                                                        className="flex items-center gap-2 cursor-pointer hover:bg-gray-700 p-2 mt-2"
+                                                    >
+                                                        <span>{status}</span>
+                                                    </div>
+                                                ))
                                             }
                                         </PopoverContent>
                                     </Popover>
-
                                 </TableCell>
-
-                            </tr>
+                            </TableRow>
                         ))
                     }
-
                 </TableBody>
-
             </Table>
         </div>
-    )
-}
+    );
+};
 
-export default ApplicantsTable
+export default ApplicantsTable;

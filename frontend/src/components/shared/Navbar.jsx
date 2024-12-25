@@ -52,7 +52,6 @@ const Navbar = () => {
               ) : (
                 <>
                   <li><Link to="/" className='text-gray-200 rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500'>Home</Link></li>
-                  <li><Link to="/jobs" className='text-gray-200 rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500'>Jobs</Link></li>
                   <li><Link to="/browse" className='text-gray-200 rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500'>Browse</Link></li>
                 </>
               )
