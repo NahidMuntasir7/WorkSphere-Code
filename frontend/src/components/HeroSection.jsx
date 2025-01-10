@@ -1,22 +1,17 @@
 import React from 'react';
-import videoBackground from '@/assets/video3.mp4'; // Import your video file
+import backgroundImage from '@/assets/backg.jpg'; // Import the image file
 import { ArrowRight } from 'lucide-react'; // Import Arrow icon from lucide-react
 
 const HeroSection = () => {
     return (
-        <div className="relative flex items-center justify-start h-screen px-10 lg:px-20 border-b-0">
-            {/* Video Background */}
-            <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover z-0"
-            >
-                <source src={videoBackground} type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
-
+        <div
+            className="relative flex items-center justify-start h-screen px-10 lg:px-20 border-b-0"
+            style={{
+                backgroundImage: `url(${backgroundImage})`, // Set the background image
+                backgroundSize: 'cover', // Ensure the image covers the section
+                backgroundPosition: 'center', // Center the image
+            }}
+        >
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[#1a0a45]"></div>
 

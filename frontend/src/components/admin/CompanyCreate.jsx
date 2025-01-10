@@ -47,7 +47,7 @@ const CompanyCreate = () => {
                 <Input
                     type="text"
                     className="my-2 bg-gray-800 text-white border-gray-700 placeholder-gray-500 focus:ring-gray-500"
-                    placeholder="JobHunt, Microsoft etc."
+                    placeholder="Amazon, Microsoft etc."
                     onChange={(e) => setCompanyName(e.target.value)}
                 />
                 <div className="flex items-center gap-2 my-10">

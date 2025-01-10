@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaSearch, FaRegPaperPlane, FaUsers, FaCheckCircle } from 'react-icons/fa';
-import videoBackground from '@/assets/video4.mp4'; // Import the video file
+import backgroundImage from '@/assets/backgg.jpg'; // Import the image file
 import { useNavigate } from 'react-router-dom';
 
 const HowItWorks = () => {
@@ -16,20 +16,11 @@ const HowItWorks = () => {
       id="how-it-works"
       style={{
         fontFamily: 'Times New Roman, serif', // Set font to Times New Roman
+        backgroundImage: `url(${backgroundImage})`, // Apply the background image
+        backgroundSize: 'cover', // Make sure the image covers the section
+        backgroundPosition: 'center', // Center the image
       }}
     >
-      {/* Video Background */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0"
-      >
-        <source src={videoBackground} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[#1a0a45]"></div>
 
@@ -103,7 +94,7 @@ const HowItWorks = () => {
         <div className="mt-6 flex justify-center">
           <button
             onClick={navigateToBrowse} // Redirect to Browse Jobs
-             className="px-10 py-6 bg-white text-[#1a0a45] font-bold text-xl rounded-full shadow-lg hover:bg-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
+            className="px-10 py-6 bg-white text-[#1a0a45] font-bold text-xl rounded-full shadow-lg hover:bg-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
           >
             Browse Jobs
             <FaSearch className="ml-2 h-5 w-5 text-[#1a0a45]" />
