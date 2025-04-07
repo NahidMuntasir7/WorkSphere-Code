@@ -59,14 +59,14 @@ const PostJob = () => {
         }
     }
     return (
-        <div className="bg-gray-900 text-white min-h-screen">
+        <div className="bg-gray-900 text-white min-h-screen flex flex-col">
             <Navbar />
-            <div className="flex items-center justify-center w-screen my-5">
+            <div className="flex flex-1 items-center justify-center w-full px-4 py-5">
                 <form
                     onSubmit={submitHandler}
-                    className="p-8 max-w-4xl border border-gray-800 shadow-lg rounded-md bg-gray-800"
+                    className="p-8 max-w-3xl w-full sm:w-[95%] md:w-[80%] lg:w-[60%] xl:w-[50%] border border-gray-800 shadow-lg rounded-md bg-gray-800"
                 >
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                             <Label className="text-gray-300">Title</Label>
                             <Input
@@ -149,7 +149,7 @@ const PostJob = () => {
                         </div>
                         {companies.length > 0 && (
                             <Select onValueChange={selectChangeHandler}>
-                                <SelectTrigger className="w-[180px] bg-gray-700 text-white border-gray-600">
+                                <SelectTrigger className="w-full sm:w-[180px] bg-gray-700 text-white border-gray-600">
                                     <SelectValue placeholder="Select a Company" />
                                 </SelectTrigger>
                                 <SelectContent className="bg-gray-800 text-white">
@@ -167,6 +167,7 @@ const PostJob = () => {
                             </Select>
                         )}
                     </div>
+
                     {loading ? (
                         <Button className="w-full my-4 bg-gray-700 text-white">
                             <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Please wait
@@ -176,6 +177,7 @@ const PostJob = () => {
                             Post New Job
                         </Button>
                     )}
+
                     {companies.length === 0 && (
                         <p className="text-xs text-red-600 font-bold text-center my-3">
                             *Please register a company first, before posting jobs
@@ -185,8 +187,6 @@ const PostJob = () => {
             </div>
         </div>
     );
-    
-    
 };
 
 export default PostJob;

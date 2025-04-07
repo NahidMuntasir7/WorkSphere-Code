@@ -22,16 +22,16 @@ const Applicants = () => {
             }
         };
         fetchAllApplicants();
-    }, []);
+    }, [params.id, dispatch]);
 
     return (
         <div style={{ backgroundColor: '#1A1A1A', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
             <Navbar />
-            <div className="w-full max-w-screen-xl mx-auto px-10 my-10">
-                <h1 className="font-bold text-2xl text-gray-300 my-6">
+            <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 my-10"> 
+                <h1 className="font-bold text-2xl sm:text-3xl md:text-4xl text-gray-300 my-6 text-center">
                     Applicants ({applicants?.applications?.length || 0})
                 </h1>
-                <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-md shadow-lg border border-gray-700">
+                <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 sm:p-8 rounded-md shadow-lg border border-gray-700">
                     <ApplicantsTable />
                 </div>
             </div>

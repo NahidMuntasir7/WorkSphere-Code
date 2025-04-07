@@ -77,17 +77,19 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
                 </DialogHeader>
                 <form onSubmit={submitHandler}>
                     <div className='grid gap-4 py-4'>
+
                         <div className='grid grid-cols-4 items-center gap-4'>
-                            <Label htmlFor="name" className="text-right text-gray-300">Name</Label>
+                            <Label htmlFor="fullname" className="text-right text-gray-300">Name</Label>
                             <Input
-                                id="name"
-                                name="name"
+                                id="fullname"
+                                name="fullname"
                                 type="text"
                                 value={input.fullname}
                                 onChange={changeEventHandler}
                                 className="col-span-3 bg-gray-700 text-white placeholder-gray-400"
                             />
                         </div>
+
                         <div className='grid grid-cols-4 items-center gap-4'>
                             <Label htmlFor="email" className="text-right text-gray-300">Email</Label>
                             <Input
@@ -99,16 +101,18 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
                                 className="col-span-3 bg-gray-700 text-white placeholder-gray-400"
                             />
                         </div>
+
                         <div className='grid grid-cols-4 items-center gap-4'>
-                            <Label htmlFor="number" className="text-right text-gray-300">Number</Label>
+                            <Label htmlFor="phoneNumber" className="text-right text-gray-300">Number</Label>
                             <Input
-                                id="number"
-                                name="number"
+                                id="phoneNumber"
+                                name="phoneNumber"
                                 value={input.phoneNumber}
                                 onChange={changeEventHandler}
                                 className="col-span-3 bg-gray-700 text-white placeholder-gray-400"
                             />
                         </div>
+
                         <div className='grid grid-cols-4 items-center gap-4'>
                             <Label htmlFor="bio" className="text-right text-gray-300">Bio</Label>
                             <Input
@@ -119,16 +123,24 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
                                 className="col-span-3 bg-gray-700 text-white placeholder-gray-400"
                             />
                         </div>
+
                         <div className='grid grid-cols-4 items-center gap-4'>
                             <Label htmlFor="skills" className="text-right text-gray-300">Skills</Label>
                             <Input
                                 id="skills"
                                 name="skills"
-                                value={input.skills}
-                                onChange={changeEventHandler}
+                                value={Array.isArray(input.skills) ? input.skills.join(', ') : input.skills}
+                                onChange={(e) =>
+                                    setInput(prev => ({
+                                        ...prev,
+                                        skills: e.target.value.split(',').map(s => s.trim())
+                                    }))
+                                }
                                 className="col-span-3 bg-gray-700 text-white placeholder-gray-400"
+                                placeholder="e.g. JavaScript, Python"
                             />
                         </div>
+
                         <div className='grid grid-cols-4 items-center gap-4'>
                             <Label htmlFor="file" className="text-right text-gray-300">Resume</Label>
                             <Input
@@ -140,10 +152,11 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
                                 className="col-span-3 bg-gray-700 text-white placeholder-gray-400"
                             />
                         </div>
+
                     </div>
                     <DialogFooter className='flex justify-center'>
                         {loading ? (
-                            <Button className="w-full my-4 bg-gray-700 text-gray-300 flex items-center justify-center">
+                            <Button className="w-full my-4 bg-gray-700 text-gray-300 flex items-center justify-center" disabled>
                                 <Loader2 className='mr-2 h-4 w-4 animate-spin' /> Please wait
                             </Button>
                         ) : (

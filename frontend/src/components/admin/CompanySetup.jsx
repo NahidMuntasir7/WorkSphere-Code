@@ -76,9 +76,9 @@ const CompanySetup = () => {
     }, [singleCompany]);
 
     return (
-        <div style={{ backgroundColor: '#1A1A1A', minHeight: '100vh' }}>
+        <div style={{ backgroundColor: '#1A1A1A', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
             <Navbar />
-            <div className="max-w-xl mx-auto my-10">
+            <div className="max-w-4xl mx-auto px-6 sm:px-10 my-10 flex-1">
                 <form onSubmit={submitHandler}>
                     <div className="flex items-center gap-5 p-8">
                         <button
@@ -93,7 +93,7 @@ const CompanySetup = () => {
                         <h1 className="font-bold text-xl text-white">Company Setup</h1>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                             <Label className="text-white">Company Name</Label>
                             <Input
@@ -101,7 +101,7 @@ const CompanySetup = () => {
                                 name="name"
                                 value={input.name}
                                 onChange={changeEventHandler}
-                                className="my-2 bg-gray-800 text-white border-gray-700 placeholder-gray-500 focus:ring-gray-500"
+                                className="my-2 bg-gray-800 text-white border-gray-700 placeholder-gray-500 focus:ring-gray-500 w-full"
                             />
                         </div>
 
@@ -112,7 +112,7 @@ const CompanySetup = () => {
                                 name="description"
                                 value={input.description}
                                 onChange={changeEventHandler}
-                                className="my-2 bg-gray-800 text-white border-gray-700 placeholder-gray-500 focus:ring-gray-500"
+                                className="my-2 bg-gray-800 text-white border-gray-700 placeholder-gray-500 focus:ring-gray-500 w-full"
                             />
                         </div>
 
@@ -123,7 +123,7 @@ const CompanySetup = () => {
                                 name="website"
                                 value={input.website}
                                 onChange={changeEventHandler}
-                                className="my-2 bg-gray-800 text-white border-gray-700 placeholder-gray-500 focus:ring-gray-500"
+                                className="my-2 bg-gray-800 text-white border-gray-700 placeholder-gray-500 focus:ring-gray-500 w-full"
                             />
                         </div>
 
@@ -134,7 +134,7 @@ const CompanySetup = () => {
                                 name="location"
                                 value={input.location}
                                 onChange={changeEventHandler}
-                                className="my-2 bg-gray-800 text-white border-gray-700 placeholder-gray-500 focus:ring-gray-500"
+                                className="my-2 bg-gray-800 text-white border-gray-700 placeholder-gray-500 focus:ring-gray-500 w-full"
                             />
                         </div>
 
@@ -144,7 +144,7 @@ const CompanySetup = () => {
                                 type="file"
                                 accept="image/*"
                                 onChange={changeFileHandler}
-                                className="my-2 bg-gray-800 text-white border-gray-700 placeholder-gray-500 focus:ring-gray-500"
+                                className="my-2 bg-gray-800 text-white border-gray-700 placeholder-gray-500 focus:ring-gray-500 w-full"
                             />
                         </div>
                     </div>

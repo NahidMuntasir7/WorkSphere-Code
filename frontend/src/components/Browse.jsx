@@ -41,30 +41,33 @@ const Browse = () => {
                     Browse Job Listings
                 </h1>
 
-                <h3 className="font-bold text-xl my-10 text-white text-center">Search Results ({filteredJobs.length})</h3>
+                <h3 className="font-bold text-xl my-10 text-white text-center">
+                    Search Results ({filteredJobs.length})
+                </h3>
 
                 {/* Search Bar */}
                 <div className="mt-8 flex w-full mb-6 justify-center">
                     <input
                         type="text"
-                        placeholder="Search for job titles, companies, or descriptions..."  // Appropriate placeholder
-                        onChange={(e) => setQuery(e.target.value)} // Update query on typing
-                        value={query} // Bind query state to input value
+                        placeholder="Search for job titles, companies, or descriptions..."
+                        onChange={(e) => setQuery(e.target.value)}
+                        value={query}
                         className="w-full max-w-2xl px-6 py-4 text-lg text-white placeholder-[#6b7280] outline-none focus:ring-2 focus:ring-blue-500 rounded-lg shadow-lg border-2 border-[#00A3E0] transition-all duration-300 ease-in-out"
                         style={{
-                            backgroundColor: '#1A1A1A', // Matching background
-                            fontFamily: 'Google Sans, sans-serif' // Text in the search bar
-                        }} 
+                            backgroundColor: '#1A1A1A',
+                            fontFamily: 'Google Sans, sans-serif'
+                        }}
                     />
                 </div>
 
-                {/* Display message if not logged in or no jobs */}
+                {/* Display message if user is not logged in or no jobs */}
                 {(!user) && (
                     <div className="text-center text-white my-6">
                         <p className="text-2xl font-semibold">Please login to see the job postings.</p>
                     </div>
                 )}
 
+                {/* Display message if no jobs found */}
                 {(user && filteredJobs.length === 0) && (
                     <div className="text-center text-white my-6">
                         <p className="text-2xl font-semibold">No jobs found.</p>
@@ -72,15 +75,13 @@ const Browse = () => {
                 )}
 
                 {/* Display Filtered Jobs */}
-                <div className="grid grid-cols-3 gap-4">
-                    {
-                        filteredJobs.length > 0 && filteredJobs.map((job) => {
-                            return (
-                                <Job key={job._id} job={job} />
-                            );
-                        })
-                    }
-                </div>
+                {filteredJobs.length > 0 && (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        {filteredJobs.map((job) => (
+                            <Job key={job._id} job={job} />
+                        ))}
+                    </div>
+                )}
             </div>
         </div>
     );

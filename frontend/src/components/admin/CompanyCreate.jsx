@@ -37,7 +37,7 @@ const CompanyCreate = () => {
     return (
         <div style={{ backgroundColor: '#1A1A1A', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
             <Navbar />
-            <div className="max-w-4xl mx-auto px-10 py-10">
+            <div className="max-w-4xl mx-auto px-6 sm:px-10 py-10">
                 <div className="my-10">
                     <h1 className="font-bold text-2xl text-white">Your Company Name</h1>
                     <p className="text-gray-400">What would you like to give your company name? You can change this later.</p>
@@ -46,20 +46,21 @@ const CompanyCreate = () => {
                 <Label className="text-white">Company Name</Label>
                 <Input
                     type="text"
-                    className="my-2 bg-gray-800 text-white border-gray-700 placeholder-gray-500 focus:ring-gray-500"
+                    className="my-2 bg-gray-800 text-white border-gray-700 placeholder-gray-500 focus:ring-gray-500 w-full sm:w-2/3 md:w-1/2"
                     placeholder="Amazon, Microsoft etc."
                     onChange={(e) => setCompanyName(e.target.value)}
                 />
-                <div className="flex items-center gap-2 my-10">
+
+                <div className="flex items-center gap-2 my-10 justify-between sm:flex-row sm:justify-start flex-col">
                     <button
                         onClick={() => navigate("/admin/companies")}
-                        className="px-4 py-2 text-white border border-gray-600 rounded-md hover:bg-gray-700 hover:text-white"
+                        className="px-4 py-2 text-white border border-gray-600 rounded-md hover:bg-gray-700 hover:text-white w-full sm:w-auto"
                     >
                         Cancel
                     </button>
                     <Button
                         onClick={registerNewCompany}
-                        className="bg-gray-700 text-white hover:bg-gray-600"
+                        className="bg-gray-700 text-white hover:bg-gray-600 w-full sm:w-auto mt-4 sm:mt-0"
                     >
                         Continue
                     </Button>
