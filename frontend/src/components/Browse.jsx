@@ -49,7 +49,7 @@ const Browse = () => {
                 <div className="mt-8 flex w-full mb-6 justify-center">
                     <input
                         type="text"
-                        placeholder="Search for job titles, companies, or descriptions..."
+                        placeholder="Search for job titles, companies..."
                         onChange={(e) => setQuery(e.target.value)}
                         value={query}
                         className="w-full max-w-2xl px-6 py-4 text-lg text-white placeholder-[#6b7280] outline-none focus:ring-2 focus:ring-blue-500 rounded-lg shadow-lg border-2 border-[#00A3E0] transition-all duration-300 ease-in-out"
