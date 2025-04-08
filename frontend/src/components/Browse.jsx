@@ -35,13 +35,13 @@ const Browse = () => {
             <div className="max-w-7xl mx-auto my-10">
                 {/* Page Title */}
                 <h1
-                    className="text-4xl font-semibold text-white mb-4 text-center"
+                    className="text-2xl font-semibold text-white mb-4 text-center"
                     style={{ fontFamily: 'Times New Roman, serif' }}
                 >
                     Browse Job Listings
                 </h1>
 
-                <h3 className="font-bold text-xl my-10 text-white text-center">
+                <h3 className="font-medium text-lg my-10 text-white text-center">
                     Search Results ({filteredJobs.length})
                 </h3>
 
@@ -60,12 +60,6 @@ const Browse = () => {
                     />
                 </div>
 
-                {/* Display message if user is not logged in or no jobs */}
-                {(!user) && (
-                    <div className="text-center text-white my-6">
-                        <p className="text-2xl font-semibold">Please login to see the job postings.</p>
-                    </div>
-                )}
 
                 {/* Display message if no jobs found */}
                 {(user && filteredJobs.length === 0) && (

@@ -43,7 +43,7 @@ const LatestJobs = () => {
                 {/* Job Listings */}
                 {!hasJobs ? (
                     <div className="flex items-center justify-center h-72">
-                        <span className="text-white text-2xl text-center">Please log in to view job postings.</span>
+                        <span className="text-white text-2xl text-center">Please wait to view job postings.</span>
                     </div>
                 ) : (
                     <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 pt-8'>
